@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, updateQuantity, clearCart } from "./CartSlice";
-import CheckoutForm from "./CheckOutForm";
+
 import "./CartItem.css";
+import CheckoutForm from "./CheckOutForm";
 
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector((state) => state.cart.items);
