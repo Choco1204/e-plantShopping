@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./ProductList.css";
 import CartItem from "./CartItem";
 import { addItem } from "./CartSlice";
@@ -281,8 +281,8 @@ function ProductList() {
     setShowCart(false); // Hide the cart when navigating to About Us
   };
 
-  const handleContinueShopping = (e) => {
-    e.preventDefault();
+  const handleContinueShopping = () => {
+    console.log("Continue Shopping clicked"); //debugging
     setShowCart(false);
   };
   // Function to handle adding a plant to the cart
@@ -297,6 +297,10 @@ function ProductList() {
   const totalQuantity = useSelector((state) =>
     state.cart.items.reduce((total, item) => total + item.quantity, 0),
   );
+
+  useEffect(() => {
+    console.log("showCart updated:", showCart); // Debugging
+  }, [showCart]);
 
   return (
     <div>
